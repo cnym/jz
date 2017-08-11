@@ -10,6 +10,8 @@ var routes = require('./routes/index');
 var nunjucks = require('nunjucks');
 var addFilter = require('./modules/addFilter');
 
+var session = require('express-session');
+
 var app = express();
 
 // view engine setup
@@ -26,9 +28,16 @@ app.set('view cache', false);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
+app.use(cookieParser('keyboard'));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
+
+app.use(session({
+	name: 'connect',
+	resave: true,//每次请求都重置session cookie
+	saveUninitialized: false,//没有session cookie，则不重新设置，默认无论如何都会重新设置cookie
+	secret: 'keyboard'
+}));
 
 app.use('/', routes);
 

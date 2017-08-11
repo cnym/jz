@@ -1,19 +1,23 @@
 var express = require('express');
 var router = express.Router();
-//var hoa = require('../config/config').service.httpOpenApi;
-var request = require('request');
 var fs = require('fs');
-//var getRequest = require('../modules/getRequest');
-//var postRequest = require('../modules/postRequest');
-//var path = require('path');
+var postRequest = require('../modules/postRequest');
 
 router.get('/', function(req, res, next) {
 	res.render('index', {
 		title: '首页',
-		pid: 1,
-		sid: 101,
 		data: { name: 'bu' }
 	});
 });
+
+router.get(
+	[
+		'/wxpub/api/exercise',
+		'/wxpub/app/backdoor'
+	],
+	function (req, res, next) {
+		postRequest(req, res);
+	}
+);
 
 module.exports = router;

@@ -8,9 +8,9 @@ module.exports = {
 	node: {
 		port: '7080'
 	},
-	/*service: {
+	service: {
 		httpOpenApi: {
-			url: 'http://172.19.10.7:8090/private'
+			url: 'http://develop.zlketang.com'
 		}
-	}*/
+	}
 };
