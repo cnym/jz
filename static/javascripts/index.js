@@ -1,8 +1,9 @@
 function openDoor () {
-	//http://develop.zlketang.com/wxpub/app/backdoor?openid=oUCIls8bDa1gGCmWuQoyYAcG3Tjk
 	$.myAjax(
-		'/wxpub/app/backdoor?openid=oUCIls8bDa1gGCmWuQoyYAcG3Tjk',
-		{},
+		'/wxpub/app/backdoor',
+		{
+			openid: 'oVcu4v4dVN2rXfrPpSvzQWfJAcL0'
+		},
 		function () {
 			console.log('成功')
 		},
@@ -19,11 +20,14 @@ window.onload = function () {
 }
 
 function getData() {
-	//http://develop.zlketang.com/wxpub/api/exercise?subject_id=22
 	$.myAjax(
-		'/wxpub/api/exercise?subject_id=22',
+		'/wxpub/api/exercise',
 		{
-		
+			subject_id: 22,
+			name: {
+				a: 'b',
+				c: 'q'
+			}
 		},
 		function () {
 			console.log('成功')

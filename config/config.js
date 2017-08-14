@@ -1,8 +1,4 @@
-/**
- * Created by kid on 2016/3/18.
- */
 var express = require('express');
-var app = express();
 
 module.exports = {
 	node: {

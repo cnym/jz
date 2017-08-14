@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
 
 router.get(
 	[
-		'/wxpub/api/exercise',
-		'/wxpub/app/backdoor'
+		'/wxpub/app/backdoor',
+		'/wxpub/api/exercise'
 	],
 	function (req, res, next) {
 		postRequest(req, res);
